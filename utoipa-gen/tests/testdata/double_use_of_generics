@@ -1,0 +1,73 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "utoipa-gen",
+    "description": "Code generation implementation for utoipa",
+    "contact": {
+      "name": "Juha Kukkonen",
+      "email": "juha7kukkonen@gmail.com"
+    },
+    "license": {
+      "name": "MIT OR Apache-2.0"
+    },
+    "version": "5.0.0-beta.0"
+  },
+  "paths": {
+    "/handler": {
+      "get": {
+        "tags": [],
+        "operationId": "handler",
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DoubleUseOfGenerics_MyStruct"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "DoubleUseOfGenerics_MyStruct": {
+        "oneOf": [
+          {
+            "type": "object",
+            "required": [
+              "Next"
+            ],
+            "properties": {
+              "Next": {
+                "type": "object",
+                "required": [
+                  "field"
+                ],
+                "properties": {
+                  "field": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          },
+          {
+            "type": "object",
+            "required": [
+              "Done"
+            ],
+            "properties": {
+              "Done": {
+                "type": "object"
+              }
+            }
+          }
+        ]
+      }
+    }
+  }
+}
